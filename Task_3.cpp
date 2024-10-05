@@ -6,16 +6,16 @@ bool anogramm(std::string first_str,std::string second_str) {
     if(first_str.length() != second_str.length()) {
         return false;
     }
-    std::map<char,char> first_map;
-    std::map<char,char> second_map;
+    std::map<char,int> first_map;
+    std::map<char,int> second_map;
     for(int i = 0;i < first_str.length();++i){
-        first_map[first_str[i]];
-        second_map[second_str[i]];
+        first_map[first_str[i]] += 1;
+        second_map[second_str[i]] += 1;
     }
-    std::map<char,char>::iterator it_0 = first_map.begin();
-    std::map<char,char>::iterator it_1 = second_map.begin();
+    std::map<char,int>::iterator it_0 = first_map.begin();
+    std::map<char,int>::iterator it_1 = second_map.begin();
     while(it_0 != first_map.end()){
-        if(it_0->first != it_1->first) {
+        if((it_0->first != it_1->first) || (it_0->second != it_1->second)) {
             return false;
         }
         it_0++;
